@@ -1,4 +1,42 @@
 {
   "name": "tesi",
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"yarn workspace backend dev\" \"yarn workspace frontend dev\"",
+    "dev:backend": "yarn workspace backend dev",
+    "dev:frontend": "yarn workspace frontend dev",
+    "build": "yarn workspaces foreach --all -pv run build",
+    "build:backend": "yarn workspace backend build",
+    "build:frontend": "yarn workspace frontend build",
+    "lint": "eslint . --ext .ts,.tsx --debug",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "prisma:migrate": "yarn workspace backend prisma:migrate",
+    "prisma:generate": "yarn workspace backend prisma:generate",
+    "prisma:seed": "yarn workspace backend prisma:seed",
+    "prisma:studio": "yarn workspace backend prisma:studio",
+    "test": "yarn workspaces foreach --all -pv run test",
+    "test:watch": "yarn workspaces foreach -pv run test:watch",
+    "test:coverage": "yarn workspaces foreach -pv run test:coverage",
+    "clean": "yarn workspaces foreach -pv run clean"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@jest/globals": "^30.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
+  }
 }
