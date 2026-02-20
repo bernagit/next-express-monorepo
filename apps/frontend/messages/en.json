@@ -1,0 +1,12 @@
+{
+  "home": {
+    "welcome": "Welcome"
+  },
+  "topbar": {
+    "login": "Login",
+    "language": {
+      "english": "English",
+      "italian": "Italian"
+    }
+  }
+}
