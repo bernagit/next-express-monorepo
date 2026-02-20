@@ -14,6 +14,7 @@
     "build": "yarn workspaces foreach --all -pv run build",
     "build:backend": "yarn workspace backend build",
     "build:frontend": "yarn workspace frontend build",
+    "start": "concurrently \"yarn workspace backend start\" \"yarn workspace frontend start\"",
     "lint": "eslint . --ext .ts,.tsx --debug",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write .",
